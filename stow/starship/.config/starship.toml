@@ -1,0 +1,67 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = """
+${custom.git_repo}\
+$directory\
+
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+
+$docker_context\
+$c\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$haskell\
+$lua\
+$nodejs\
+$ocaml\
+$php\
+$purescript\
+$python\
+$rlang\
+$rust\
+$typst\
+$zig\
+$nix_shell\
+
+$gcloud\
+$aws\
+$azure\
+$time\
+$status\
+
+$cmd_duration\
+$line_break\
+$character\
+"""
+
+[character]
+success_symbol = "[:\\)](bold green)"
+error_symbol = "[:\\(](bold red)"
+
+[custom.git_repo]
+# thanks: https://zenn.dev/izumin/articles/81d12705aebbd3
+when = true
+require_repo = true
+command = 'git rev-parse --show-toplevel | sed -e "s,$(ghq root)/\(github\.com/\)\?,,"'
+style = 'bold blue'
+
+
+[directory]
+truncation_length = 100
+format = "[$path ]($style)[$read_only]($read_only_style)"
+repo_root_format = "[($path )]($style)"
+repo_root_style = "underline"
+
+[nodejs]
+detect_extensions = [ "mjs", "cjs", "mts", "cts" ] # remove `js` and `ts` from default
+

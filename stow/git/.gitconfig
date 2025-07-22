@@ -1,0 +1,28 @@
+[user]
+	name = Taishi Naka
+	email = taishi.develop@gmail.com
+[push]
+	autoSetupRemote = true
+[init]
+	defaultBranch = master
+[alias]
+	st = status
+	co = checkout
+	sw = switch
+	sc = switch -c
+	a = add
+	au = add -u
+	cm = commit -m
+	fcm = commit --allow-empty -m \"Initial commit\" 
+	cp = cherry-pick
+	df = diff
+	br = branch
+	log1 = log -1
+	log2 = log -2
+	log3 = log -3
+	log4 = log -4
+	log5 = log -5
+	logo = log --oneline
+	logn = log --name-status --oneline
+	lgn = "log --graph --decorate --abbrev-commit --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%C(white)%s%C(reset) %C(dim white)- %an%C(reset)'"
+
