@@ -7,8 +7,10 @@ install:
 completion-dir-755:
 	./scripts/completion-dir-755.sh
 
+# link new files
 stow-link:
-	stow -d stow -t ~ brew zsh git nvim starship alacritty
+	stow -d stow -t ~ brew zsh git nvim tmux starship alacritty
 
-stow-adopt:
-	stow --adopt -v -d stow -t ~ brew zsh git nvim starship alacritty
+# adopt existing files
+# stow-adopt:
+# 	stow --adopt -v -d stow -t ~ brew zsh git nvim tmux starship alacritty
