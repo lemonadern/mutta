@@ -5,6 +5,8 @@ setopt hist_ignore_dups       # 直前のコマンドと同じ場合は履歴に
 setopt hist_ignore_space      # 先頭にスペースがあるコマンドは履歴に残さない
 setopt hist_ignore_all_dups   # 履歴全体で重複を許さない
 setopt share_history          # 複数のターミナルで履歴を共有する
+setopt auto_param_slash       # 補完対象がディレクトリの場合は半角空白の代わりにスラッシュを挿入する
+setopt mark_dirs              # globbingの結果得られたディレクトリ名にはスラッシュを末尾に追加する
 
 # history
 HISTFILE="$HOME/.zsh_history" # 履歴ファイルの場所
@@ -115,6 +117,21 @@ function fzf-cdr() {
 zle -N fzf-cdr
 setopt noflowcontrol
 bindkey '^q' fzf-cdr
+
+# fzf + fd to search file/directory and insert selected path to command line
+# keybind: Ctrl+f
+insert_path_with_fd_fzf() {
+  local selected
+  selected=$(fd . --hidden --follow --exclude .git | fzf --height 40% --reverse --preview 'eza -T --color=always {} | head -200') || {
+    zle redisplay
+    return
+  }
+  LBUFFER="$LBUFFER${(q)selected} "
+  zle redisplay
+}
+zle -N insert_path_with_fd_fzf
+bindkey '^f' insert_path_with_fd_fzf
+
 
 ####################################################################################
 
