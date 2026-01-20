@@ -54,7 +54,7 @@ alias ls="eza --classify=always"
 alias la="eza --all --classify=always"
 alias ll="eza --all --long --classify=always"
 alias lsg="eza --all --long --classify=always --git"
-alias tree="eza --icons=always --classify=always --tree"
+alias tree="eza --classify=always --tree"
 
 alias ts="tree-sitter"
 
