@@ -30,7 +30,7 @@ alias vim="nvim"
 alias ".."="cd .."
 alias "..."="cd ../.."
 alias "...."="cd ../../.."
-alias dl="cd ~/downloads/"
+alias dl="cd ~/Downloads/"
 alias cdg="cd ~/git/"
 
 alias g="git"
@@ -119,7 +119,7 @@ setopt noflowcontrol
 bindkey '^q' fzf-cdr
 
 # fzf + fd to search file/directory and insert selected path to command line
-# keybind: Ctrl+f
+# keybind: Ctrl+t
 insert_path_with_fd_fzf() {
   local selected
   selected=$(fd . --hidden --follow --exclude .git | fzf --height 40% --reverse --preview 'eza -T --color=always {} | head -200') || {
@@ -130,7 +130,7 @@ insert_path_with_fd_fzf() {
   zle redisplay
 }
 zle -N insert_path_with_fd_fzf
-bindkey '^f' insert_path_with_fd_fzf
+bindkey '^t' insert_path_with_fd_fzf
 
 
 ####################################################################################
