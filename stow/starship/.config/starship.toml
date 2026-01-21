@@ -39,7 +39,9 @@ $azure\
 $time\
 $status\
 
+$hostname\
 $cmd_duration\
+
 $line_break\
 $character\
 """
@@ -55,12 +57,14 @@ require_repo = true
 command = 'git rev-parse --show-toplevel | sed -e "s,$(ghq root)/\(github\.com/\)\?,,"'
 style = 'bold blue'
 
-
 [directory]
 truncation_length = 100
 format = "[$path ]($style)[$read_only]($read_only_style)"
 repo_root_format = "[($path )]($style)"
 repo_root_style = "underline"
+
+[hostname]
+format = "in [$ssh_symbol$hostname]($style) "
 
 [nodejs]
 detect_extensions = [ "mjs", "cjs", "mts", "cts" ] # remove `js` and `ts` from default
